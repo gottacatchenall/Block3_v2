@@ -1,7 +1,7 @@
 const CLUSTER = "CLUSTER" ∈ keys(ENV) 
 const EXTENT = CLUSTER ? () : (left = 10, bottom = 10, right = 12, top = 12, )
 
-const CHELSA_DIR = CLUSTER ? "/projects/def-gonzalez/mcatchen/ColoradoBumblebees/data/public/chelsa" :  "/home/michael/Papers/ColoradoBumblebees/data/public/chelsa" 
+const CHELSA_DIR = CLUSTER ? "/project/def-gonzalez/mcatchen/ColoradoBumblebees/data/public/chelsa" :  "/home/michael/Papers/ColoradoBumblebees/data/public/chelsa" 
 const OUTDIR = CLUSTER ? "/scratch/mcatchen/Block3/" : "./output"
 
 const K_RANGE = 1:15
