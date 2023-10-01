@@ -16,8 +16,10 @@ function make_climate_velocity()
             vel_layer = similar(baseline_layers[begin])
             fill_layer!(vel_layer, abs_diff)
             push!(velocity_layers, vel_layer)
-            push!(paths, "velocity_$(dirname(scen))_$(string(time)).tif")
+            push!(paths, "velocity_$(string(scen))_$(_time_to_string(time)).tif")
         end 
     end
     paths, velocity_layers
 end
+
+_time_to_string(years) = string(years[1].value)*"_"*string(years[2].value)

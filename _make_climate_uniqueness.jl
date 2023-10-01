@@ -32,7 +32,9 @@ end
 
 function make_climate_uniqueness(k)
     layers = load_chelsa_baseline()
+
     @assert allequal([findall(!isnothing, l.grid) for l in layers])
+    
 
     pca_layers, pca_data_matrix = make_pca_layers(layers)
     uniqueness = similar(pca_layers[begin])

@@ -15,5 +15,6 @@ module load cudnn
 
 export JULIA_DEPOT_PATH="/project/def-gonzalez/mcatchen/JuliaEnvironments/COBees"
 export CLUSTER="true"
+export SDMLAYERS_PATH="/project/def-gonzalez/mcatchen/CHELSA"
 
 julia main.jl
