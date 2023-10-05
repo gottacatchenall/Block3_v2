@@ -38,7 +38,7 @@ function load_water(chelsa_template)
         mat = zeros(Float16, size(chelsa_template))
         mat[1:end-1, 1:end-1] .= layer.grid
         lc = SimpleSDMPredictor(mat, SpeciesDistributionToolkit.boundingbox(chelsa_template)...)  
-    endg
+    end
     @info size(chelsa_template), size(lc)
     @assert size(chelsa_template) == size(lc)
     return lc
