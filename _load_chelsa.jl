@@ -26,15 +26,20 @@ function load_water(chelsa_template)
 
     lc = nothing
     if CLUSTER 
-        lc = SimpleSDMPredictor(layer.grid[1:end-1,:], SpeciesDistributionToolkit.boundingbox(chelsa_template)...) 
+        # make water layer one layer taller filled with true
+        sz = size(layer.grid) .+ (1,0)
+        m = zeros(Float16, sz)
+
+        m[begin:end-1, :] .= layer.grid
+        m[end, :] .= 100.
+        lc = SimpleSDMPredictor(m, SpeciesDistributionToolkit.boundingbox(chelsa_template)...) 
     else
         # Hacky but doesn't matter
         mat = zeros(Float16, size(chelsa_template))
         mat[1:end-1, 1:end-1] .= layer.grid
         lc = SimpleSDMPredictor(mat, SpeciesDistributionToolkit.boundingbox(chelsa_template)...)  
-    end
+    endg
     @info size(chelsa_template), size(lc)
     @assert size(chelsa_template) == size(lc)
     return lc
 end
-
